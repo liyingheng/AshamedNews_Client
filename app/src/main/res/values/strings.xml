@@ -1,3 +1,14 @@
 <resources>
-    <string name="app_name">AshamedNews</string>
+    <string name="app_name">Ashamed News</string>
+
+
+    <!-- Toolbar -->
+    <string name="toolbar_feature">Featured</string>
+    <string name="toolbar_new">New</string>
+    <string name="toolbar_text">Text</string>
+
+    <!-- Global -->
+    <string name="global_empty_data">No information available. Be the first to post ashamed news!</string>
+    <string name="title_activity_featured">FeaturedActivity</string>
+
 </resources>

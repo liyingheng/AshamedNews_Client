@@ -1,15 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.paullee.liyingheng.ashamednews.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
+    <RelativeLayout
+        android:id="@+id/ToolBar_RelativeLayout"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
 
-</LinearLayout>
+        <ImageView
+            android:background="@drawable/side_icon"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginLeft="16dp"
+            android:layout_centerVertical="true"/>
+
+        <ImageView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="16dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/icon_post_enable"/>
+
+        <LinearLayout
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:background="@drawable/top_tab_background3">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/toolbar_feature"
+                android:gravity="center"
+                android:layout_weight="1"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/toolbar_new"
+                android:gravity="center"
+                android:layout_weight="1"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/toolbar_text"
+                android:gravity="center"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#E8F5E9"
+        android:layout_below="@id/ToolBar_RelativeLayout">
+
+        <TextView
+            android:id="@+id/DataEmpty_TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/global_empty_data"
+            android:textSize="15sp"
+            android:layout_margin="16dp"/>
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+
+    </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+
+
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/fab_margin"
+        app:backgroundTint="@color/colorPrimary"
+        app:fabSize="normal"
+        app:elevation="4dp"
+        android:src="@android:drawable/ic_input_add"
+        android:tint="#E8F5E9"
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+
+</RelativeLayout>
