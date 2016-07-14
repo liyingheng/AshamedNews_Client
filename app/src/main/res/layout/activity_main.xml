@@ -68,13 +68,14 @@
         android:layout_below="@id/ToolBar_RelativeLayout">
 
         <TextView
-            android:id="@+id/DataEmpty_TextView"
+            android:id="@+id/dataEmpty_TextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/global_empty_data"
             android:textSize="15sp"
             android:layout_margin="16dp"/>
         <ListView
+            android:id="@+id/featuredNews_featured_ListView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
@@ -93,7 +94,7 @@
         app:elevation="4dp"
         android:src="@android:drawable/ic_input_add"
         android:tint="#E8F5E9"
-        android:id="@+id/floatingActionButton"
+        android:id="@+id/addNew_featured_FAB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

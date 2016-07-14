@@ -9,5 +9,12 @@
 
     <!-- Global -->
     <string name="global_empty_data">暂时无糗事哦。快快点击右上角做第一个发表糗事的人吧~</string>
+    <string name="day_Friday">周五</string>
+    <string name="day_Monday">周一</string>
+    <string name="day_Saturday">周六</string>
+    <string name="day_Sunday">周日</string>
+    <string name="day_Thursday">周四</string>
+    <string name="day_Tuesday">周二</string>
+    <string name="day_Wednesday">周三</string>
 
 </resources>

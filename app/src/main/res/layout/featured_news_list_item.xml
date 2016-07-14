@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:paddingTop="@dimen/general_margin"
+    android:paddingBottom="@dimen/general_margin"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/avatar_featured_list_item"
+        android:src="@drawable/icon_post_enable"
+        android:layout_width="@dimen/avatar_height"
+        android:layout_height="@dimen/avatar_width"
+        android:layout_marginLeft="@dimen/avatar_margin_left"
+
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/mainContent_margin_left"
+        android:layout_marginRight="@dimen/general_margin">
+
+        <TextView
+            android:id="@+id/nickname_featured_list_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Paul Lee"
+            android:textSize="@dimen/Body_Medium_textSize"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/userId_featured_list_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/general_margin"
+            android:layout_toRightOf="@id/nickname_featured_list_item"
+            android:text="\@paul"
+            android:textSize="@dimen/Body_Regular_textSize"
+            android:textColor="@color/text_light_grey"
+            android:fontFamily="sans-serif-light"
+            />
+
+        <TextView
+            android:id="@+id/timestamp_featured_list_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="Yesterday"
+            android:textSize="@dimen/Body_Regular_textSize"
+            android:textColor="@color/text_light_grey"
+            />
+
+        <TextView
+            android:id="@+id/content_featured_list_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nickname_featured_list_item"
+            android:fontFamily="sans-serif-light"
+            android:text="This is the first news\nMy Name is Paul Lee\nI'm a Chinese\nFrom CIDP"
+            />
+
+    </RelativeLayout>
+
+</LinearLayout>

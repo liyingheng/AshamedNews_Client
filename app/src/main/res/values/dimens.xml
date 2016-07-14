@@ -3,4 +3,21 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+
+    <!-- Android Design Guidelines -->
+    <dimen name="avatar_margin_left">16dp</dimen>
+    <dimen name="avatar_height">40dp</dimen>
+    <dimen name="avatar_width">40dp</dimen>
+
+    <dimen name="mainContent_margin_left">16dp</dimen>
+
+
+    <dimen name="general_margin">16dp</dimen>
+
+
+    <!-- Typography Guidelines -->
+    <dimen name="Body_Medium_textSize">14sp</dimen>
+    <dimen name="Body_Regular_textSize">14sp</dimen>
+    <dimen name="Body_Medium_leading">4dp</dimen>
+
 </resources>
