@@ -3,7 +3,7 @@
     <string name="app_name">糗事大百科</string>
 
     <!-- Toolbar -->
-    <string name="toolbar_feature">干货</string>
+    <string name="toolbar_hot">干货</string>
     <string name="toolbar_new">嫩草</string>
     <string name="toolbar_text">文字</string>
 

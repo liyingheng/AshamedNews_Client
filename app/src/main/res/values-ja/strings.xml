@@ -5,7 +5,7 @@
     <string name="day_Monday">月曜日</string>
     <string name="day_Saturday">土曜日</string>
     <string name="global_empty_data">入手可能な情報なし。投稿します！</string>
-    <string name="toolbar_feature">特集</string>
+    <string name="toolbar_hot">人気</string>
     <string name="toolbar_new">新</string>
     <string name="toolbar_text">文章</string>
     <string name="day_Sunday">日曜日</string>

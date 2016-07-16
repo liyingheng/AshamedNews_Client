@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -16,13 +17,15 @@
         android:layout_height="56dp">
 
         <ImageView
+            android:id="@+id/toolbar_SideIcon_ImageView"
             android:background="@drawable/side_icon"
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:layout_marginLeft="16dp"
-            android:layout_centerVertical="true"/>
+            android:layout_centerVertical="true" />
 
         <ImageView
+            android:id="@+id/toolbar_PostNewIcon_ImageView"
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:layout_alignParentRight="true"
@@ -38,19 +41,25 @@
             android:gravity="center"
             android:background="@drawable/top_tab_background3">
 
-            <TextView
+            <Button
+                android:id="@+id/toolbar_Hot_Button"
+                android:background="@android:color/transparent"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/toolbar_feature"
+                android:text="@string/toolbar_hot"
                 android:gravity="center"
                 android:layout_weight="1"/>
-            <TextView
+            <Button
+                android:id="@+id/toolbar_New_Button"
+                android:background="@android:color/transparent"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@string/toolbar_new"
                 android:gravity="center"
                 android:layout_weight="1"/>
-            <TextView
+            <Button
+                android:id="@+id/toolbar_Text_Button"
+                android:background="@android:color/transparent"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@string/toolbar_text"
@@ -61,40 +70,53 @@
     </RelativeLayout>
 
     <LinearLayout
+        android:id="@+id/global_Loading_LinearLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="#E8F5E9"
-        android:layout_below="@id/ToolBar_RelativeLayout">
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ToolBar_RelativeLayout"
+        android:background="@color/colorBackground"
+        android:gravity="center"
+        android:orientation="horizontal">
 
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:soundEffectsEnabled="true"
+            />
         <TextView
-            android:id="@+id/dataEmpty_TextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/global_empty_data"
-            android:textSize="15sp"
-            android:layout_margin="16dp"/>
-        <ListView
-            android:id="@+id/featuredNews_featured_ListView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-
-
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="拼命加载中"/>
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/global_noData_TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/global_empty_data"
+        android:layout_below="@id/ToolBar_RelativeLayout"
+        android:visibility="gone"/>
+
+    <FrameLayout
+        android:id="@+id/global_FragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackground"
+        android:layout_below="@id/global_Loading_LinearLayout"
+        android:visibility="visible">
+    </FrameLayout>
+
     <android.support.design.widget.FloatingActionButton
-
-
+        android:id="@+id/global_addNewPost_FAButton"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_margin="@dimen/fab_margin"
-        app:backgroundTint="@color/colorPrimary"
+        app:backgroundTint="@color/colorAccent"
         app:fabSize="normal"
         app:elevation="4dp"
         android:src="@android:drawable/ic_input_add"
         android:tint="#E8F5E9"
-        android:id="@+id/addNew_featured_FAB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
