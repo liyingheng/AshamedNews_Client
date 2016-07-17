@@ -1,125 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<RelativeLayout
+<android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.paullee.liyingheng.ashamednews.MainActivity">
+    android:id="@+id/global_CoordinatorLayout">
+
 
     <RelativeLayout
-        android:id="@+id/ToolBar_RelativeLayout"
-        android:background="@color/colorPrimary"
-        android:layout_width="match_parent"
-        android:layout_height="56dp">
-
-        <ImageView
-            android:id="@+id/toolbar_SideIcon_ImageView"
-            android:background="@drawable/side_icon"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_marginLeft="16dp"
-            android:layout_centerVertical="true" />
-
-        <ImageView
-            android:id="@+id/toolbar_PostNewIcon_ImageView"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="16dp"
-            android:layout_centerVertical="true"
-            android:src="@drawable/icon_post_enable"/>
-
-        <LinearLayout
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:background="@drawable/top_tab_background3">
-
-            <Button
-                android:id="@+id/toolbar_Hot_Button"
-                android:background="@android:color/transparent"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/toolbar_hot"
-                android:gravity="center"
-                android:layout_weight="1"/>
-            <Button
-                android:id="@+id/toolbar_New_Button"
-                android:background="@android:color/transparent"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/toolbar_new"
-                android:gravity="center"
-                android:layout_weight="1"/>
-            <Button
-                android:id="@+id/toolbar_Text_Button"
-                android:background="@android:color/transparent"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/toolbar_text"
-                android:gravity="center"
-                android:layout_weight="1"/>
-
-        </LinearLayout>
-    </RelativeLayout>
-
-    <LinearLayout
-        android:id="@+id/global_Loading_LinearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/ToolBar_RelativeLayout"
-        android:background="@color/colorBackground"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <ProgressBar
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:soundEffectsEnabled="true"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="拼命加载中"/>
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/global_noData_TextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/global_empty_data"
-        android:layout_below="@id/ToolBar_RelativeLayout"
-        android:visibility="gone"/>
-
-    <FrameLayout
-        android:id="@+id/global_FragmentContainer"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/activity_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorBackground"
-        android:layout_below="@id/global_Loading_LinearLayout"
-        android:visibility="visible">
-    </FrameLayout>
+        android:orientation="vertical"
+        tools:context="com.paullee.liyingheng.ashamednews.MainActivity">
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/global_addNewPost_FAButton"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_margin="@dimen/fab_margin"
-        app:backgroundTint="@color/colorAccent"
-        app:fabSize="normal"
-        app:elevation="4dp"
-        android:src="@android:drawable/ic_input_add"
-        android:tint="#E8F5E9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <RelativeLayout
+            android:id="@+id/ToolBar_RelativeLayout"
+            android:background="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="56dp">
+
+            <ImageView
+                android:id="@+id/toolbar_SideIcon_ImageView"
+                android:background="@drawable/side_icon"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginLeft="16dp"
+                android:layout_centerVertical="true" />
+
+            <ImageView
+                android:id="@+id/toolbar_PostNewIcon_ImageView"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="16dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/icon_post_enable"/>
+
+            <LinearLayout
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:background="@drawable/top_tab_background3">
+
+                <Button
+                    android:id="@+id/toolbar_Hot_Button"
+                    android:background="@android:color/transparent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/toolbar_hot"
+                    android:gravity="center"
+                    android:layout_weight="1"/>
+                <Button
+                    android:id="@+id/toolbar_New_Button"
+                    android:background="@android:color/transparent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/toolbar_new"
+                    android:gravity="center"
+                    android:layout_weight="1"/>
+                <Button
+                    android:id="@+id/toolbar_Text_Button"
+                    android:background="@android:color/transparent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/toolbar_text"
+                    android:gravity="center"
+                    android:layout_weight="1"/>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/global_Loading_LinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ToolBar_RelativeLayout"
+            android:background="@color/colorBackground"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:soundEffectsEnabled="true"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="拼命加载中"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/global_noData_TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/global_empty_data"
+            android:layout_below="@id/ToolBar_RelativeLayout"
+            android:visibility="gone"/>
+
+        <FrameLayout
+            android:id="@+id/global_FragmentContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorBackground"
+            android:layout_below="@id/global_Loading_LinearLayout"
+            android:visibility="visible">
+        </FrameLayout>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/global_addNewPost_FAButton"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/fab_margin"
+            app:backgroundTint="@color/colorAccent"
+            app:fabSize="normal"
+            app:elevation="4dp"
+            android:src="@android:drawable/ic_input_add"
+            android:tint="#E8F5E9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
 
 
-</RelativeLayout>
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>

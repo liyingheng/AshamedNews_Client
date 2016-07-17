@@ -11,6 +11,10 @@
 
     <dimen name="mainContent_margin_left">16dp</dimen>
 
+    <dimen name="NavBar_item_LeftPadding">48dp</dimen>
+    <dimen name="NavBar_item_separator_height">2dp</dimen>
+
+
 
     <dimen name="general_margin">16dp</dimen>
 
@@ -18,6 +22,7 @@
     <!-- Typography Guidelines -->
     <dimen name="Body_Medium_textSize">14sp</dimen>
     <dimen name="Body_Regular_textSize">14sp</dimen>
+    <dimen name="NavBar_Body_textSize">14sp</dimen>
     <dimen name="Body_Medium_leading">4dp</dimen>
 
 </resources>
