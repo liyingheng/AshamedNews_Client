@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.paullee.liyingheng.ashamednews.R;
-import com.paullee.liyingheng.ashamednews.impl.ILoading;
+import com.paullee.liyingheng.ashamednews.callback.ILoading;
 
 /**
  * A simple {@link Fragment} subclass.

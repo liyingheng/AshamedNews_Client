@@ -1,4 +1,4 @@
-package com.paullee.liyingheng.ashamednews.impl;
+package com.paullee.liyingheng.ashamednews.callback;
 
 /**
  * Created by liyingheng on 16/7/16.

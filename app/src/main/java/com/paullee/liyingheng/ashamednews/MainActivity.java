@@ -4,7 +4,6 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,10 +11,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.paullee.liyingheng.ashamednews.fragment.*;
-import com.paullee.liyingheng.ashamednews.impl.*;
+import com.paullee.liyingheng.ashamednews.callback.*;
+import com.paullee.liyingheng.ashamednews.util.Utility;
 
 public class MainActivity extends FragmentActivity implements View.OnClickListener,ILoading,SharedPreferences.OnSharedPreferenceChangeListener {
 
@@ -39,10 +41,19 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     HotTabFragment hotTabFragment;
     NewTabFragment newTabFragment;
     TextTabFragment textTabFragment;
+    FeaturedTabFragment featuredTabFragment;
+    HistoryTabFragment historyTabFragment;
+    NearbyTabFragment nearbyTabFragment;
+    PictureTabFragment pictureTabFragment;
+    PrivateMessageTabFragment privateMessageTabFragment;
 
     //ProgressBar
     LinearLayout loadingLayout;
     TextView noDataTextView;
+
+    //NavBar & NavBar Fragment
+    SlidingMenu navBar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,10 +82,27 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         loadingLayout=(LinearLayout)findViewById(R.id.global_Loading_LinearLayout);
         noDataTextView=(TextView)findViewById(R.id.global_noData_TextView);
 
+        //Initialize NavBar
+        View navBarView=View.inflate(this,R.layout.navbar,null);
+        navBar=new SlidingMenu(this);
+        navBar.setMenu(navBarView);
+        navBar.setMode(SlidingMenu.LEFT);
+        navBar.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+        navBar.setFadeDegree(0.35f);
+        navBar.setBehindOffsetRes(R.dimen.NavBar_behindOffset);
+        navBar.attachToActivity(this,SlidingMenu.SLIDING_CONTENT);
+        //Initialize Tab in NavBar
+        RelativeLayout hotNavTab=(RelativeLayout)findViewById(R.id.navbar_tab_hot);
+        RelativeLayout featuredNavTab=(RelativeLayout)findViewById(R.id.navbar_tab_featured);
+        RelativeLayout pictureNavTab=(RelativeLayout)findViewById(R.id.navbar_tab_picture);
+        RelativeLayout historyNavTab=(RelativeLayout)findViewById(R.id.navbar_tab_history);
+
+
         //Inflate HotTabFragment (Default Tab)
         hotTabFragment=new HotTabFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.global_FragmentContainer,hotTabFragment).commit();
         hotTabFragment.setLoadingInterface(this);
+
 
         //Initialize Callback Interface
 
@@ -83,11 +111,13 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         hotTabButton.setOnClickListener(this);
         newTabButton.setOnClickListener(this);
         textTabButton.setOnClickListener(this);
+        sideIconImageView.setOnClickListener(this);
+
     }
 
     @Override
     public void onClick(View v) {
-        //loadingLayout.setVisibility(View.VISIBLE);
+
         switch(v.getId())
         {
             case R.id.toolbar_Hot_Button:
@@ -120,6 +150,11 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 textTabFragment.setLoadingInterface(this);
                 break;
             }
+            case R.id.toolbar_SideIcon_ImageView:
+            {
+                Log.d(LOG_TAG,"SideIconPressed!");
+                navBar.toggle();
+            }
         }
     }
 
@@ -141,7 +176,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         Log.d(LOG_TAG,"onSharedPreferenceChanged.key="+key);
         if(key==getString(R.string.sp_key_NetworkState))
         {
-            int status=sharedPreferences.getInt(getString(R.string.sp_key_NetworkState),Utility.NETWORK_OK);
+            int status=sharedPreferences.getInt(getString(R.string.sp_key_NetworkState), Utility.NETWORK_OK);
             Log.d(LOG_TAG,"NetworkStatePreferenceChanged:"+status);
             if(status==Utility.NETWORK_UNREACHABLE)
             {

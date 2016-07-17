@@ -13,6 +13,7 @@
 
     <dimen name="NavBar_item_LeftPadding">48dp</dimen>
     <dimen name="NavBar_item_separator_height">2dp</dimen>
+    <dimen name="NavBar_behindOffset">100dp</dimen>
 
 
 

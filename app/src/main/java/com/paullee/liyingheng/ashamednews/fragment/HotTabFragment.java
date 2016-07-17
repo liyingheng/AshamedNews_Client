@@ -4,7 +4,6 @@ package com.paullee.liyingheng.ashamednews.fragment;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,11 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.bumptech.glide.util.Util;
 import com.paullee.liyingheng.ashamednews.FeaturedAdapter;
 import com.paullee.liyingheng.ashamednews.R;
 import com.paullee.liyingheng.ashamednews.Tweet;
-import com.paullee.liyingheng.ashamednews.Utility;
+import com.paullee.liyingheng.ashamednews.util.Utility;
 
 import org.json.JSONArray;
 import org.json.JSONException;

@@ -65,7 +65,7 @@ public class FeaturedAdapter extends BaseAdapter {
 
         Tweet tweet=mTweetList.get(position);
 
-        convertView=View.inflate(mContext,R.layout.featured_post_list_item,null);
+        convertView=View.inflate(mContext,R.layout.hot_post_list_item,null);
 
         avatarImageView=(ImageView)convertView.findViewById(R.id.hot_item_avatar);
         nicknameTextView=(TextView)convertView.findViewById(R.id.hot_item_nickname);

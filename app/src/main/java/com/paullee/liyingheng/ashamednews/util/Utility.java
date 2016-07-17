@@ -1,8 +1,10 @@
-package com.paullee.liyingheng.ashamednews;
+package com.paullee.liyingheng.ashamednews.util;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+
+import com.paullee.liyingheng.ashamednews.R;
 
 /**
  * Created by liyingheng on 16/7/16.
