@@ -23,6 +23,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
     //MainActivity Variable
     private static final String LOG_TAG = MainActivity.class.getSimpleName();
+    Bundle fragmentTypeBundle;
 
 
     //Widget for global
@@ -126,7 +127,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 if(hotTabFragment==null) {
                     hotTabFragment = new HotTabFragment();
                 }
-                getSupportFragmentManager().beginTransaction().replace(R.id.global_FragmentContainer,hotTabFragment).commit();
+                getSupportFragmentManager().beginTransaction().add(R.id.global_FragmentContainer,hotTabFragment).commit();
                 hotTabFragment.setLoadingInterface(this);
                 break;
             }

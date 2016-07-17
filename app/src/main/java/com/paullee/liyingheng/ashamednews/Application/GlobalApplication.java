@@ -10,12 +10,12 @@ import android.os.Bundle;
 
 public class GlobalApplication extends Application{
 
-    public static final String BASE_URL_PATH="http://172.17.129.128/qiubai/";
+    public static final String BASE_URL_PATH="http://172.17.129.220/qiubai/";
 
-    public static final String URL_HOT="ganhuo.php?start=1&end=5";
-    public static final String URL_NEW="nencao.php?start=1&end=5";
-    public static final String URL_TEXT="wenzi.php?start=1&end=5";
-    public static final String URL_BASE_AVATAR="Userimg/";
-    public static final String URL_BASE_PIMG="Valueimg";
+    public static final String URL_HOT=BASE_URL_PATH+"ganhuo.php?start=1&end=5";
+    public static final String URL_NEW=BASE_URL_PATH+"nencao.php?start=1&end=5";
+    public static final String URL_TEXT=BASE_URL_PATH+"wenzi.php?start=1&end=5";
+    public static final String URL_BASE_AVATAR=BASE_URL_PATH+"Userimg/";
+    public static final String URL_BASE_PIMG=BASE_URL_PATH+"Valueimg/";
 
 }

@@ -100,7 +100,7 @@
             android:id="@+id/global_noData_TextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/global_empty_data"
+            android:text=""
             android:layout_below="@id/ToolBar_RelativeLayout"
             android:visibility="gone"/>
 

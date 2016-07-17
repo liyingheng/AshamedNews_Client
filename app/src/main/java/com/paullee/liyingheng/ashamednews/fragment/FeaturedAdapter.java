@@ -1,4 +1,4 @@
-package com.paullee.liyingheng.ashamednews;
+package com.paullee.liyingheng.ashamednews.fragment;
 
 import android.content.Context;
 import android.util.Log;
@@ -9,6 +9,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.paullee.liyingheng.ashamednews.R;
+import com.paullee.liyingheng.ashamednews.Tweet;
 
 import java.util.List;
 
@@ -65,7 +67,7 @@ public class FeaturedAdapter extends BaseAdapter {
 
         Tweet tweet=mTweetList.get(position);
 
-        convertView=View.inflate(mContext,R.layout.hot_post_list_item,null);
+        convertView=View.inflate(mContext, R.layout.hot_post_list_item,null);
 
         avatarImageView=(ImageView)convertView.findViewById(R.id.hot_item_avatar);
         nicknameTextView=(TextView)convertView.findViewById(R.id.hot_item_nickname);
