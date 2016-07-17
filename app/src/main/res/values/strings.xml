@@ -24,4 +24,7 @@
     <!-- SharedPreference Keys -->
     <string name="sp_key_NetworkState">NetworkState</string>
 
+    <!-- Network State Snackbar -->
+    <string name="net_state_NetworkUnreachable">Check Internet Connection</string>
+
 </resources>

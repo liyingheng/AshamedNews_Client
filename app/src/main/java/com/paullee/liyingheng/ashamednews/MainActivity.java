@@ -3,6 +3,7 @@ package com.paullee.liyingheng.ashamednews;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
@@ -24,6 +25,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
     //Widget for global
     FloatingActionButton addFAB;
+    Snackbar networkStatusSnackbar;
 
     //Widget for Toolbar
     ImageView sideIconImageView;
@@ -41,7 +43,6 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     //ProgressBar
     LinearLayout loadingLayout;
     TextView noDataTextView;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -140,12 +141,13 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         Log.d(LOG_TAG,"onSharedPreferenceChanged.key="+key);
         if(key==getString(R.string.sp_key_NetworkState))
         {
-
             int status=sharedPreferences.getInt(getString(R.string.sp_key_NetworkState),Utility.NETWORK_OK);
             Log.d(LOG_TAG,"NetworkStatePreferenceChanged:"+status);
             if(status==Utility.NETWORK_UNREACHABLE)
             {
                 Log.d(LOG_TAG,"Network State: NETWORK_ERROR");
+                networkStatusSnackbar=Snackbar.make(findViewById(R.id.global_CoordinatorLayout),getString(R.string.net_state_NetworkUnreachable),Snackbar.LENGTH_LONG);
+                networkStatusSnackbar.show();
             }
         }
     }
