@@ -1,10 +1,12 @@
 package com.paullee.liyingheng.ashamednews;
 
+import java.io.Serializable;
+
 /**
  * Created by liyingheng on 16/7/15.
  */
 
-public class Tweet {
+public class Tweet implements Serializable {
     private String QID;
     private String UID;
     private String TID;

@@ -4,26 +4,50 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
 
+    <!-- Toolbar -->
+    <dimen name="toolbar_height">56dp</dimen>
+    <dimen name="toolbar_elevation">16dp</dimen>
+
     <!-- Android Design Guidelines -->
     <dimen name="avatar_margin_left">16dp</dimen>
     <dimen name="avatar_height">40dp</dimen>
     <dimen name="avatar_width">40dp</dimen>
-
     <dimen name="mainContent_margin_left">16dp</dimen>
+    <dimen name="pic_maxDimension">100dp</dimen>
+    <dimen name="hot_vote_buttonHeight">56dp</dimen>
+    <dimen name="hot_icon_dimension">16dp</dimen>
+    <dimen name="hot_IconText_margin">4dp</dimen>
+    <dimen name="hot_Icons_margin">8dp</dimen>
 
     <dimen name="NavBar_item_LeftPadding">48dp</dimen>
     <dimen name="NavBar_item_separator_height">2dp</dimen>
     <dimen name="NavBar_behindOffset">100dp</dimen>
 
 
-
     <dimen name="general_margin">16dp</dimen>
 
 
     <!-- Typography Guidelines -->
+    <dimen name="Title_textSize">20sp</dimen>
     <dimen name="Body_Medium_textSize">14sp</dimen>
     <dimen name="Body_Regular_textSize">14sp</dimen>
     <dimen name="NavBar_Body_textSize">14sp</dimen>
     <dimen name="Body_Medium_leading">4dp</dimen>
+
+    <!-- PostNewActivity -->
+    <dimen name="postnew_bottom_bar">56dp</dimen>
+    <!-- DetailActivity -->
+    <dimen name="detail_vote_buttonHeight">56dp</dimen>
+    <dimen name="detail_icon_dimension">16dp</dimen>
+    <dimen name="detail_IconText_margin">4dp</dimen>
+    <dimen name="detail_Icons_margin">8dp</dimen>
+    <!-- LoginActivity -->
+    <dimen name="login_item_height">48dp</dimen>
+    <dimen name="login_top_margin">108dp</dimen>
+    <dimen name="login_sub_item_margin">4dp</dimen>
+    <!-- SignUpActivity -->
+    <dimen name="signup_item_height">48dp</dimen>
+    <dimen name="signup_top_margin">108dp</dimen>
+    <dimen name="signup_sub_item_margin">4dp</dimen>
 
 </resources>

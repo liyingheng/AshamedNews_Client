@@ -1,7 +1,6 @@
 package com.paullee.liyingheng.ashamednews.fragment;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,6 +14,7 @@ import com.paullee.liyingheng.ashamednews.application.GlobalApplication;
 import com.paullee.liyingheng.ashamednews.callback.HttpHandlerCallback;
 import com.paullee.liyingheng.ashamednews.http.HttpHandler;
 import com.paullee.liyingheng.ashamednews.http.HttpThread;
+import com.paullee.liyingheng.ashamednews.http.HttpUtil;
 
 import java.util.List;
 
@@ -26,7 +26,7 @@ public class NewTabFragment extends BaseTabFragment implements HttpHandlerCallba
     //Layout for baseTabFragment
     SwipeRefreshLayout baseRefreshLayout;
     ListView dataListView;
-    FeaturedAdapter baseAdapter;
+    BaseDataAdapter baseDataAdapter;
 
 
     //DataSource
@@ -43,7 +43,7 @@ public class NewTabFragment extends BaseTabFragment implements HttpHandlerCallba
 
         //Fetch Data From Cloud
         handler=new HttpHandler();
-        httpThread=new HttpThread(getActivity(), GlobalApplication.URL_NEW,handler);
+        httpThread = new HttpThread(getActivity(), GlobalApplication.URL_NEW, handler, null);
         httpThread.start();
         httpThread.handler.setHandlerCallback(this);
 
@@ -62,7 +62,8 @@ public class NewTabFragment extends BaseTabFragment implements HttpHandlerCallba
         baseRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                httpThread.start();
+                HttpThread t1 = new HttpThread(getActivity(), GlobalApplication.URL_NEW, handler, null);
+                t1.start();
             }
         });
         baseRefreshLayout.setColorSchemeColors(R.color.colorPrimary);
@@ -71,15 +72,22 @@ public class NewTabFragment extends BaseTabFragment implements HttpHandlerCallba
 
 
     @Override
-    public void sendbackHandlerData(List<Tweet> parsedData) {
-        if(!parsedData.isEmpty()) {
-            parsedList = parsedData;
-            baseAdapter=new FeaturedAdapter(getActivity(),parsedList);
-            dataListView.setAdapter(baseAdapter);
-            baseRefreshLayout.setRefreshing(false);
+    public void sendbackHandlerData(List<Tweet> parsedData, int NetworkState) {
+        if (parsedData != null) {
+            if (!parsedData.isEmpty()) {
+                parsedList = parsedData;
+                baseDataAdapter = new BaseDataAdapter(getActivity(), parsedList);
+                dataListView.setAdapter(baseDataAdapter);
+                baseRefreshLayout.setRefreshing(false);
+            } else {
+                baseRefreshLayout.setRefreshing(false);
+                Log.d(LOG_TAG, "Data is empty");
+                dataListView.setEmptyView(emptyDataView);
+            }
         }
         else
         {
+            baseRefreshLayout.setRefreshing(false);
             Log.d(LOG_TAG,"Data is null");
         }
     }

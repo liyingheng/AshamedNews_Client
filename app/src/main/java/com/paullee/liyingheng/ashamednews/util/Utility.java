@@ -7,6 +7,7 @@ import android.util.Log;
 
 import com.paullee.liyingheng.ashamednews.R;
 import com.paullee.liyingheng.ashamednews.Tweet;
+import com.paullee.liyingheng.ashamednews.UserInfo;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -76,5 +77,25 @@ public class Utility {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static UserInfo ParseUsername(String strJSON) throws JSONException {
+        UserInfo userInfo = new UserInfo();
+        JSONArray usersJSONArray = new JSONArray(strJSON);
+        JSONObject userObject = usersJSONArray.getJSONObject(0);
+
+        userInfo.setUSERID(userObject.getString("USERID"));
+        userInfo.setUNAME(userObject.getString("UNAME"));
+        userInfo.setUHEAD(userObject.getString("UHEAD"));
+        userInfo.setUAGE(userObject.getString("UAGE"));
+        userInfo.setUHOBBIES(userObject.getString("UHOBBIES"));
+        userInfo.setUPLACE(userObject.getString("UPLACE"));
+        userInfo.setUEXPLAIN(userObject.getString("UEXPLAIN"));
+        userInfo.setUTIME(userObject.getString("UTIME"));
+        userInfo.setUBRAND(userObject.getString("UBRAND"));
+        userInfo.setUPASS(userObject.getString("UPASS"));
+        userInfo.setUSEX(userObject.getString("USEX"));
+
+        return userInfo;
     }
 }

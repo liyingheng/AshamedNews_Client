@@ -8,7 +8,229 @@
     android:orientation="vertical"
     tools:context="com.paullee.liyingheng.ashamednews.DetailActivity">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/postnew_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:elevation="@dimen/toolbar_elevation">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/general_margin"
+            android:paddingRight="@dimen/general_margin">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="糗事内容"
+                android:layout_centerVertical="true"
+                android:textStyle="bold"
+                android:textSize="@dimen/Title_textSize"
+                android:textColor="#ffffff" />
+        </RelativeLayout>
+    </android.support.v7.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:contentDescription="Content Display"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:contentDescription="Main Content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/detail_sublayout_userinfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:id="@+id/detail_item_avatar"
+                        android:layout_width="@dimen/avatar_height"
+                        android:layout_height="@dimen/avatar_width"
+                        android:layout_marginLeft="@dimen/avatar_margin_left" />
+
+                    <TextView
+                        android:id="@+id/detail_item_nickname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Paul Lee"
+                        android:textSize="@dimen/Body_Medium_textSize"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/detail_item_userId"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/general_margin"
+                        android:layout_weight="1"
+                        android:text="\@paul"
+                        android:textSize="@dimen/Body_Regular_textSize"
+                        android:textColor="@color/text_light_grey"
+                        android:fontFamily="sans-serif-light" />
+
+                    <TextView
+                        android:id="@+id/detail_item_timestamp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Yesterday"
+                        android:layout_marginRight="@dimen/mainContent_margin_left"
+                        android:textSize="@dimen/Body_Regular_textSize"
+                        android:textColor="@color/text_light_grey" />
+                </LinearLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:layout_marginLeft="@dimen/mainContent_margin_left"
+                    android:layout_marginRight="@dimen/general_margin"
+                    android:layout_below="@+id/detail_sublayout_userinfo">
+
+                    <TextView
+                        android:id="@+id/detail_item_content"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:fontFamily="sans-serif-light"
+                        android:text="汉武帝时期也有过禁枪的争论。丞相公孙弘认为：弓弩杀伤力大，应该禁。光禄大夫吾丘寿王则认为：亡命之徒本来就不怕死，官府禁止不了他们持弓弩，而良民为了自卫持弓弩反而获罪，结果长歹徒威风而夺走良民自卫的能力。禁枪令没通过。" />
+
+                    <ImageView
+                        android:id="@+id/detail_item_pic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxHeight="@dimen/pic_maxDimension"
+                        android:maxWidth="@dimen/pic_maxDimension"
+                        android:layout_below="@id/detail_item_content"
+                        android:src="@drawable/default_content_pic" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/detail_item_pic">
+
+                        <LinearLayout
+                            android:id="@+id/detail_subLayout_like"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/detail_vote_buttonHeight"
+                            android:gravity="center"
+                            android:background="@drawable/button_vote_enable"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/detail_icon_like"
+                                android:layout_width="@dimen/detail_icon_dimension"
+                                android:layout_height="@dimen/detail_icon_dimension"
+                                android:src="@drawable/icon_for_enable" />
+
+                            <TextView
+                                android:id="@+id/detail_item_like"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/detail_IconText_margin"
+                                android:text="9999" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/detail_subLayout_dislike"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/detail_vote_buttonHeight"
+                            android:layout_toRightOf="@id/detail_subLayout_like"
+                            android:layout_marginLeft="@dimen/detail_Icons_margin"
+                            android:gravity="center"
+                            android:background="@drawable/button_vote_enable"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/detail_icon_dislike"
+                                android:layout_width="@dimen/detail_icon_dimension"
+                                android:layout_height="@dimen/detail_icon_dimension"
+                                android:src="@drawable/icon_against_enable" />
+
+                            <TextView
+                                android:id="@+id/detail_item_dislike"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/detail_IconText_margin"
+                                android:text="2334" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/detail_subLayout_more"
+                            android:layout_width="36dp"
+                            android:layout_height="@dimen/detail_vote_buttonHeight"
+                            android:layout_alignParentRight="true"
+                            android:gravity="center"
+                            android:background="@drawable/button_vote_enable"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/detail_icon_more"
+                                android:layout_width="@dimen/detail_icon_dimension"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/icon_fav_enable" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/detail_subLayout_comment"
+                            android:layout_width="48dp"
+                            android:layout_height="56dp"
+                            android:layout_toLeftOf="@id/detail_subLayout_more"
+                            android:layout_marginRight="@dimen/detail_Icons_margin"
+                            android:gravity="center"
+                            android:background="@drawable/button_comment"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/detail_item_comment"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="6300" />
+                        </LinearLayout>
+                    </RelativeLayout>
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:contentDescription="Comment Content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:paddingLeft="@dimen/general_margin"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:hint="@string/DetailActivity_comment_hint" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/postnew_send"
+            android:padding="8dp"
+            android:tint="#FFFFFF" />
+    </LinearLayout>
 
 
 </LinearLayout>

@@ -1,5 +1,7 @@
 package com.paullee.liyingheng.ashamednews.callback;
 
+import android.os.Message;
+
 import com.paullee.liyingheng.ashamednews.Tweet;
 
 import java.util.List;
@@ -9,5 +11,5 @@ import java.util.List;
  */
 
 public interface HttpHandlerCallback {
-    public void sendbackHandlerData(List<Tweet> parsedData);
+    public void sendbackHandlerData(List<Tweet> parsedData, int HandlerNetworkState);
 }

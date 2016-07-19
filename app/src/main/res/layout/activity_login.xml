@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    tools:context="com.paullee.liyingheng.ashamednews.LoginActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/login_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        app:elevation="@dimen/toolbar_elevation">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/LoginActivity_toolbar_title"
+                android:textColor="@color/text_white"
+                android:textSize="@dimen/Title_textSize"
+                android:layout_centerVertical="true"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/login_redirect_signup"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/SignUpActivity_toolbar_title"
+                android:textColor="@color/colorAccent"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@color/colorPrimary" />
+        </RelativeLayout>
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/login_item_height"
+        android:layout_marginTop="@dimen/login_top_margin"
+        android:paddingLeft="@dimen/general_margin"
+        android:gravity="center_vertical"
+        android:background="@color/item_background_color">
+
+        <ImageView
+            android:contentDescription="UserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:src="@android:drawable/ic_dialog_email"
+            android:tint="@color/colorAccent" />
+
+        <EditText
+            android:id="@+id/login_item_username"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/LoginActivity_item_username"
+            android:textColorHint="@color/text_light_grey" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/login_item_height"
+        android:layout_marginTop="@dimen/login_sub_item_margin"
+        android:paddingLeft="@dimen/general_margin"
+        android:background="@color/item_background_color">
+
+        <ImageView
+            android:contentDescription="Password"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:src="@android:drawable/ic_lock_lock"
+            android:tint="@color/colorAccent" />
+
+        <EditText
+            android:id="@+id/login_item_password"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:password="true"
+            android:hint="@string/LoginActivity_item_password"
+            android:textColorHint="@color/text_light_grey" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/login_login_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/login_top_margin"
+        android:gravity="center"
+        android:text="@string/LoginActivity_toolbar_title" />
+</LinearLayout>

@@ -11,6 +11,9 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.paullee.liyingheng.ashamednews.R;
 import com.paullee.liyingheng.ashamednews.Tweet;
+import com.paullee.liyingheng.ashamednews.application.GlobalApplication;
+
+import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -18,20 +21,28 @@ import java.util.List;
  * Created by liyingheng on 16/7/14.
  */
 
-public class FeaturedAdapter extends BaseAdapter {
+public class BaseDataAdapter extends BaseAdapter {
 
-    private static final String LOG_TAG=FeaturedAdapter.class.getSimpleName();
+    private static final String LOG_TAG = BaseDataAdapter.class.getSimpleName();
 
     Context mContext;
     List<Tweet> mTweetList;
 
     ImageView avatarImageView;
+    ImageView tpicImageView;
     TextView nicknameTextView;
     TextView userIdTextView;
     TextView timestampTextView;
     TextView contentTextView;
+    TextView likeTextView;
+    TextView dislikeTextView;
+    TextView commentTextView;
 
-    public FeaturedAdapter(Context context,List<Tweet> tweetList) {
+    public BaseDataAdapter(Context context) {
+        mContext = context;
+    }
+
+    public BaseDataAdapter(Context context, List<Tweet> tweetList) {
         super();
         mContext=context;
         mTweetList=tweetList;
@@ -41,7 +52,9 @@ public class FeaturedAdapter extends BaseAdapter {
         }
     }
 
-
+    public void setDataSource(List<Tweet> dataSource) {
+        mTweetList = dataSource;
+    }
 
     @Override
     public int getCount() {
@@ -67,22 +80,35 @@ public class FeaturedAdapter extends BaseAdapter {
 
         Tweet tweet=mTweetList.get(position);
 
-        convertView=View.inflate(mContext, R.layout.hot_post_list_item,null);
+        convertView = View.inflate(mContext, R.layout.data_post_list_item, null);
 
         avatarImageView=(ImageView)convertView.findViewById(R.id.hot_item_avatar);
+        tpicImageView = (ImageView) convertView.findViewById(R.id.hot_item_pic);
         nicknameTextView=(TextView)convertView.findViewById(R.id.hot_item_nickname);
         userIdTextView=(TextView)convertView.findViewById(R.id.hot_item_userId);
         timestampTextView=(TextView)convertView.findViewById(R.id.hot_item_timestamp);
+        likeTextView = (TextView) convertView.findViewById(R.id.hot_item_like);
+        dislikeTextView = (TextView) convertView.findViewById(R.id.hot_item_dislike);
+        commentTextView = (TextView) convertView.findViewById(R.id.hot_item_comment);
         contentTextView=(TextView)convertView.findViewById(R.id.hot_item_content);
 
         nicknameTextView.setText(tweet.getUNAME());
         userIdTextView.setText("@"+tweet.getUSERID());
         contentTextView.setText(tweet.getQVALUE());
-        String imageURL="http://172.17.129.220/qiubai/Userimg/"+tweet.getUHEAD();
+        likeTextView.setText(tweet.getQLIKE());
+        dislikeTextView.setText(tweet.getQUNLIKE());
+        commentTextView.setText(tweet.getQSHARE());
+
+        String avatarURL = GlobalApplication.URL_BASE_AVATAR + tweet.getUHEAD();
+        String imageURL = GlobalApplication.URL_BASE_PIMG + tweet.getQIMG();
+
+        Glide.with(mContext)
+                .load(avatarURL)
+                .into(avatarImageView);
 
         Glide.with(mContext)
                 .load(imageURL)
-                .into(avatarImageView);
+                .into(tpicImageView);
         //Log.d(LOG_TAG,imageURL);
         //Log.d(LOG_TAG,"Content:"+tweet.getQVALUE());
 

@@ -1,13 +1,10 @@
 package com.paullee.liyingheng.ashamednews.fragment;
 
 
-import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +13,6 @@ import android.widget.TextView;
 
 import com.paullee.liyingheng.ashamednews.R;
 import com.paullee.liyingheng.ashamednews.Tweet;
-import com.paullee.liyingheng.ashamednews.application.GlobalApplication;
-import com.paullee.liyingheng.ashamednews.callback.HttpHandlerCallback;
 import com.paullee.liyingheng.ashamednews.callback.ILoading;
 import com.paullee.liyingheng.ashamednews.http.HttpThread;
 
@@ -48,7 +43,7 @@ public class BaseTabFragment extends Fragment{
     SwipeRefreshLayout baseRefreshLayout;
     ListView dataListView;
     TextView emptyDataView;
-    FeaturedAdapter HotAdapter;
+    BaseDataAdapter HotAdapter;
 
 
     //DataSource
@@ -75,12 +70,12 @@ public class BaseTabFragment extends Fragment{
         super.onCreate(savedInstanceState);
 
         //Delay to execute LoadingSuccess Method
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                loadingInterface.LoadingFailed();
-            }
-        },2000);
+//        handler.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                loadingInterface.LoadingFailed();
+//            }
+//        },2000);
     }
 
 }

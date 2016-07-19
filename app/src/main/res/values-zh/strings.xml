@@ -16,5 +16,32 @@
     <string name="day_Thursday">周四</string>
     <string name="day_Tuesday">周二</string>
     <string name="day_Wednesday">周三</string>
+    <string name="net_state_JsonParseError">数据源错误</string>
+    <string name="net_state_NetworkUnreachable">检查网络连接</string>
+    <string name="LoginActivity_item_password">密码</string>
+    <string name="LoginActivity_item_username">用户名</string>
+    <string name="LoginActivity_toast_loginFailed">用户名或密码错误</string>
+    <string name="LoginActivity_toast_loginSuccess">登录成功</string>
+    <string name="LoginActivity_toast_loginUnknown">未知错误</string>
+    <string name="LoginActivity_toolbar_title">登录</string>
+    <string name="SignUpActivity_button_signup">注册</string>
+    <string name="SignUpActivity_item_password">密码</string>
+    <string name="SignUpActivity_item_username">用户名</string>
+    <string name="SignUpActivity_toast_SignupFailed">注册失败</string>
+    <string name="SignUpActivity_toast_SignupSuccessful">注册成功</string>
+    <string name="SignUpActivity_toast_SignupUnknown">未知错误</string>
+    <string name="SignUpActivity_toolbar_title">注册</string>
+    <string name="navbar_item_censor">审查新糗事</string>
+    <string name="navbar_item_featured">精华</string>
+    <string name="navbar_item_history">穿越</string>
+    <string name="navbar_item_hot">热门</string>
+    <string name="navbar_item_logout">注销登录</string>
+    <string name="navbar_item_nearby">附近</string>
+    <string name="navbar_item_picture">有图有真相</string>
+    <string name="navbar_item_privatemessage">小纸条</string>
+    <string name="navbar_logout_toast">你已注销!</string>
+    <string name="navbar_nickname_default">登入</string>
+    <string name="navbar_nickname_toast_logined">你已登入</string>
+    <string name="LoginActivity_toast_loginFirst">请先登录</string>
 
 </resources>

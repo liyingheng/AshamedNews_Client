@@ -31,7 +31,7 @@ public class TextTabFragment extends BaseTabFragment implements HttpHandlerCallb
     //Layout for baseTabFragment
     SwipeRefreshLayout baseRefreshLayout;
     ListView dataListView;
-    FeaturedAdapter baseAdapter;
+    BaseDataAdapter baseDataAdapter;
 
 
     //DataSource
@@ -48,7 +48,7 @@ public class TextTabFragment extends BaseTabFragment implements HttpHandlerCallb
 
         //Fetch Data From Cloud
         handler=new HttpHandler();
-        httpThread=new HttpThread(getActivity(), GlobalApplication.URL_TEXT,handler);
+        httpThread = new HttpThread(getActivity(), GlobalApplication.URL_TEXT, handler, null);
         httpThread.start();
         httpThread.handler.setHandlerCallback(this);
 
@@ -67,7 +67,8 @@ public class TextTabFragment extends BaseTabFragment implements HttpHandlerCallb
         baseRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                httpThread.start();
+                HttpThread t1 = new HttpThread(getActivity(), GlobalApplication.URL_TEXT, handler, null);
+                t1.start();
             }
         });
         baseRefreshLayout.setColorSchemeColors(R.color.colorPrimary);
@@ -76,15 +77,22 @@ public class TextTabFragment extends BaseTabFragment implements HttpHandlerCallb
 
 
     @Override
-    public void sendbackHandlerData(List<Tweet> parsedData) {
-        if(!parsedData.isEmpty()) {
-            parsedList = parsedData;
-            baseAdapter=new FeaturedAdapter(getActivity(),parsedList);
-            dataListView.setAdapter(baseAdapter);
-            baseRefreshLayout.setRefreshing(false);
+    public void sendbackHandlerData(List<Tweet> parsedData, int NetworkState) {
+        if (parsedData != null) {
+            if (!parsedData.isEmpty()) {
+                parsedList = parsedData;
+                baseDataAdapter = new BaseDataAdapter(getActivity(), parsedList);
+                dataListView.setAdapter(baseDataAdapter);
+                baseRefreshLayout.setRefreshing(false);
+            } else {
+                Log.d(LOG_TAG, "Data is empty");
+                dataListView.setEmptyView(emptyDataView);
+                baseRefreshLayout.setRefreshing(false);
+            }
         }
         else
         {
+            baseRefreshLayout.setRefreshing(false);
             Log.d(LOG_TAG,"Data is null");
         }
     }

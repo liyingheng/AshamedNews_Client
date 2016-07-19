@@ -7,9 +7,41 @@
     <string name="toolbar_new">New</string>
     <string name="toolbar_text">Text</string>
 
-    <!-- Global -->
-    <string name="global_empty_data">No information available. Be the first to post ashamed news!</string>
+    <!-- NavBar -->
+    <string name="navbar_nickname_default">Login</string>
+    <string name="navbar_nickname_toast_logined">Already login</string>
+    <string name="navbar_logout_toast">You\'ve Logout!</string>
+    <string name="navbar_item_hot">Hot</string>
+    <string name="navbar_item_featured">Featured</string>
+    <string name="navbar_item_picture">Picture</string>
+    <string name="navbar_item_history">History</string>
+    <string name="navbar_item_privatemessage">Private Message</string>
+    <string name="navbar_item_nearby">Nearby</string>
+    <string name="navbar_item_censor">Censor New Post</string>
+    <string name="navbar_item_logout">Log Out</string>
 
+    <!-- Global -->
+    <string name="global_empty_data">No information available. Be the first to post!</string>
+
+    <!-- DetailActivity -->
+    <string name="DetailActivity_comment_hint">Add a comment...</string>
+
+    <!-- LoginActivity -->
+    <string name="LoginActivity_toolbar_title">Login</string>
+    <string name="LoginActivity_item_username">Username</string>
+    <string name="LoginActivity_item_password">Password</string>
+    <string name="LoginActivity_toast_loginSuccess">Login Success!</string>
+    <string name="LoginActivity_toast_loginFailed">Incorrect Username or Password.\nLogin Failed!</string>
+    <string name="LoginActivity_toast_loginUnknown">Unknown Error</string>
+    <string name="LoginActivity_toast_loginFirst">Login first</string>
+    <!-- SignUp Activity -->
+    <string name="SignUpActivity_toolbar_title">Sign Up</string>
+    <string name="SignUpActivity_item_username">Username</string>
+    <string name="SignUpActivity_item_password">Password</string>
+    <string name="SignUpActivity_button_signup">Sign Up</string>
+    <string name="SignUpActivity_toast_SignupSuccessful">Sign Up successsful!</string>
+    <string name="SignUpActivity_toast_SignupFailed">Sign Up failed!</string>
+    <string name="SignUpActivity_toast_SignupUnknown">Unknown Error!</string>
     <!-- Util -->
     <!-- Day of the week -->
     <string name="day_Monday">Monday</string>
@@ -20,12 +52,15 @@
     <string name="day_Saturday">Saturday</string>
     <string name="day_Sunday">Sunday</string>
 
-
     <!-- SharedPreference Keys -->
     <string name="sp_key_NetworkState">NetworkState</string>
-
+    <string name="sp_key_Username">Username</string>
+    <!-- Intent Key -->
+    <string name="intent_tabToDetail">TabFragmentToDetail</string>
     <!-- Network State Snackbar -->
+    <string name="net_state_JsonParseError">Data Source Error</string>
     <string name="net_state_NetworkUnreachable">Check Internet Connection</string>
+
 
     <!-- Fragment Bundle Key -->
     <string name="fragment_type_key">FragmentType</string>
