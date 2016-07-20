@@ -42,6 +42,10 @@
     <string name="SignUpActivity_toast_SignupSuccessful">Sign Up successsful!</string>
     <string name="SignUpActivity_toast_SignupFailed">Sign Up failed!</string>
     <string name="SignUpActivity_toast_SignupUnknown">Unknown Error!</string>
+    <!-- Setting Activity -->
+    <string name="SettingActivity_toolbar_title">Setting</string>
+    <string name="SettingsActivity_item_serverip">Server address</string>
+    <string name="SettingsActivity_commit">Apply</string>
     <!-- Util -->
     <!-- Day of the week -->
     <string name="day_Monday">Monday</string>
@@ -55,6 +59,7 @@
     <!-- SharedPreference Keys -->
     <string name="sp_key_NetworkState">NetworkState</string>
     <string name="sp_key_Username">Username</string>
+    <string name="sp_key_ServerAddress">ServerAddress</string>
     <!-- Intent Key -->
     <string name="intent_tabToDetail">TabFragmentToDetail</string>
     <!-- Network State Snackbar -->
@@ -67,5 +72,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
 
 </resources>

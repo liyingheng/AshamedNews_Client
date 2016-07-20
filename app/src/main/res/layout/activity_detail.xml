@@ -9,7 +9,7 @@
     tools:context="com.paullee.liyingheng.ashamednews.DetailActivity">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/postnew_toolbar"
+        android:id="@+id/detail_toolbar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/toolbar_height"
         android:elevation="@dimen/toolbar_elevation">

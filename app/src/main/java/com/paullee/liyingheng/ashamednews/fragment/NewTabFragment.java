@@ -59,6 +59,8 @@ public class NewTabFragment extends BaseTabFragment implements HttpHandlerCallba
         dataListView=(ListView)view.findViewById(R.id.base_hotNews_ListView);
         //Respond to Vertical Swipe Refresh
         baseRefreshLayout=(SwipeRefreshLayout)view.findViewById(R.id.base_RefreshLayout);
+        baseRefreshLayout.setProgressViewOffset(false, 0, 100);
+        baseRefreshLayout.setRefreshing(true);
         baseRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {

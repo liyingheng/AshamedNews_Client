@@ -92,17 +92,17 @@ public class HotTabFragment extends BaseTabFragment implements HttpHandlerCallba
                 dataAdapter.setDataSource(parsedData);
                 dataListView.setAdapter(dataAdapter);
                 //Respond to ListView item selected
-                dataListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        Tweet clickTweet = new Tweet();
-                        clickTweet = parsedList.get(position);
-                        Intent intent = new Intent(getActivity(), DetailActivity.class);
-                        Bundle bundle = new Bundle();
-                        bundle.putSerializable(getString(R.string.intent_tabToDetail), clickTweet);
-                        startActivity(intent);
-                    }
-                });
+//                dataListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//                    @Override
+//                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                        Tweet clickTweet = new Tweet();
+//                        clickTweet = parsedList.get(position);
+//                        Intent intent = new Intent(getActivity(), DetailActivity.class);
+//                        Bundle bundle = new Bundle();
+//                        bundle.putSerializable(getString(R.string.intent_tabToDetail), clickTweet);
+//                        startActivity(intent);
+//                    }
+//                });
                 hotRefreshLayout.setRefreshing(false);
             } else {
                 Log.d(LOG_TAG, "Data is null");

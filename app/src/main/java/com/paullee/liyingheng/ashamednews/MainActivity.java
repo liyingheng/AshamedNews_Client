@@ -61,6 +61,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     //NavBar & NavBar Fragment
     SlidingMenu navBar;
     TextView loginTextView;
+    ImageView settingIconImageView;
     RelativeLayout hotNavTab;
     RelativeLayout featuredNavTab;
     RelativeLayout pictureNavTab;
@@ -72,9 +73,14 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initView();
+
         SharedPreferences sharedPreferences=PreferenceManager.getDefaultSharedPreferences(this);
+        GlobalApplication.BASE_URL_IP = sharedPreferences.getString(getString(R.string.sp_key_ServerAddress), GlobalApplication.BASE_URL_IP);
+        Log.i(LOG_TAG, "Now BASEURLIP onCreate is:" + GlobalApplication.BASE_URL_IP);
+        Log.i(LOG_TAG, "Hello Hello!");
         sharedPreferences.registerOnSharedPreferenceChangeListener(this);
+
+        initView();
 
     }
 
@@ -106,6 +112,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         navBar.attachToActivity(this,SlidingMenu.SLIDING_CONTENT);
         //Initialize Tab in NavBar
         loginTextView = (TextView) findViewById(R.id.navbar_nickname_TextView);
+        settingIconImageView = (ImageView) findViewById(R.id.navbar_button_setting);
         hotNavTab = (RelativeLayout) findViewById(R.id.navbar_tab_hot);
         featuredNavTab = (RelativeLayout) findViewById(R.id.navbar_tab_featured);
         pictureNavTab = (RelativeLayout) findViewById(R.id.navbar_tab_picture);
@@ -128,6 +135,8 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         newTabButton.setOnClickListener(this);
         textTabButton.setOnClickListener(this);
         sideIconImageView.setOnClickListener(this);
+        postNewIconImageView.setOnClickListener(this);
+        settingIconImageView.setOnClickListener(this);
         hotNavTab.setOnClickListener(this);
         addFAB.setOnClickListener(this);
         loginTextView.setOnClickListener(this);
@@ -183,6 +192,17 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 }
                 break;
             }
+            case R.id.toolbar_PostNewIcon_ImageView: {
+                if (GlobalApplication.userInfo != null) {
+                    Intent intent = new Intent(this, PostNewActivity.class);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(this, getString(R.string.LoginActivity_toast_loginFirst), Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(this, LoginActivity.class);
+                    startActivity(intent);
+                }
+                break;
+            }
             case R.id.navbar_nickname_TextView: {
                 if (GlobalApplication.userInfo != null) {
                     Toast.makeText(this, getString(R.string.navbar_nickname_toast_logined), Toast.LENGTH_LONG).show();
@@ -193,10 +213,17 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 navBar.toggle();
                 break;
             }
+            case R.id.navbar_button_setting: {
+                Intent intent = new Intent(this, SettingActivity.class);
+                startActivity(intent);
+                navBar.toggle();
+            }
             case R.id.navbar_tab_hot: {
                 if (hotTabFragment == null) {
                     hotTabFragment = new HotTabFragment();
                 }
+                ClearToolbarTabBackground();
+                hotTabButton.setBackgroundResource(R.drawable.side_menu_background_active);
                 getSupportFragmentManager().beginTransaction().replace(R.id.global_FragmentContainer, hotTabFragment).commit();
                 hotTabFragment.setLoadingInterface(this);
                 navBar.toggle();
@@ -256,6 +283,12 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 //                    networkStatusSnackbar.show();
 //                }
             }
+        }
+        if (key.equals(getString(R.string.sp_key_ServerAddress))) {
+            String serverip = sharedPreferences.getString(getString(R.string.sp_key_ServerAddress), GlobalApplication.BASE_URL_IP);
+            Log.d(LOG_TAG, "Server IP has changed:" + serverip);
+            GlobalApplication.BASE_URL_IP = serverip;
+            Log.d(LOG_TAG, "Now BASEURLIP after sp changed is:" + GlobalApplication.BASE_URL_IP);
         }
     }
 

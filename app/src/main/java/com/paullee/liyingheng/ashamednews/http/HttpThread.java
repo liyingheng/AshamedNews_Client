@@ -44,6 +44,7 @@ public class HttpThread extends Thread {
     }
 
     public void run() {
+        Log.d(LOG_TAG, "Currently request URL:" + mUrl);
         if (postValue == null) {   //Execute GET method
             Message msg = new Message();
             try {
